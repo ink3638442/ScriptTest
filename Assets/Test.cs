@@ -16,11 +16,11 @@ public class Boss {
 		this.hp -= damage;
 	}
 
-	public void Magic() {
-		if (mp < 5) {
+	public void Magic(int requireMp) {
+		if (mp < requireMp) {
 			Debug.Log("MPが足りないため魔法が使えない。");
 		} else {
-			this.mp -= 5;
+			this.mp -= requireMp;
 			Debug.Log("魔法攻撃をした。残りMPは" + mp + "。");
 		}
 	}
@@ -50,7 +50,7 @@ public class Test : MonoBehaviour {
 
 		for (int i = 1; i <= 11; i++) {
 			Debug.Log(i + "ターン目");
-			lastboss.Magic();
+			lastboss.Magic(5);
 		}
 	}
 	
